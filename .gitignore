@@ -1,4 +1,5 @@
 # Byte-compiled / optimized / DLL files
+test.py
 *.svg
 __pycache__/
 *.py[cod]
