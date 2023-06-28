@@ -32,28 +32,14 @@ class Player(Entity):
         atk = 1
         super().__init__(name, hp, atk)
 
-    def flee(self):
-        print("running")
-
-    def cry(self):
-        print("crying")
-
     def fight(self):
         print("fighting")
 
+    def flee(self):
+        print("running")
+
+    def open_map(self):
+        print("opening map")
+
     def rest(self):
         print("resting")
-
-    __synonyms = [({"сбежать", "убежать"}, flee),
-                  ({"отдохнуть", "поспать"}, rest),
-                  ({"сражаться", "биться"}, fight),]
-    commands = {}
-    for i in __synonyms:
-        commands.update(commands.fromkeys(i[0], i[1]))
-
-    def decide_action(self):
-        player_input = input("> ").lower().strip(string.punctuation)
-        try:
-            Player.commands[player_input](self)
-        except KeyError:
-            print("no command")
